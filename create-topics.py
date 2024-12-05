@@ -30,5 +30,9 @@ def main():
     admin_client.create_topics(new_topics=topics, validate_only=False)
     print("[info] Kafka topics have been created successfully.")
 
+    # Displaying created topics
+    print("[info] List of topics with the prefix:")
+    [print(f"- {topic}") for topic in admin_client.list_topics() if topic_prefix in topic]
+
 if __name__ == "__main__":
     main()
